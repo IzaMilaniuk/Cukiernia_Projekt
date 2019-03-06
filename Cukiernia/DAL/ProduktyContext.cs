@@ -17,7 +17,7 @@ namespace Cukiernia.DAL
         public DbSet<Produkt> Produkty { get; set; }
         public DbSet<Kategoria> Kategorie { get; set; }
         public DbSet<Zamowienie> Zamowienia { get; set; }
-        public DbSet<PozycjeZamowienia> PozycjeZamowienia { get; set; }
+        public DbSet<PozycjaZamowienia> PozycjeZamowienia { get; set; }
 
         //Kiedy będzie tworzona baza nie bęzie dodawane s na końcu
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
