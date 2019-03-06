@@ -9,8 +9,11 @@ namespace Cukiernia.Models
     public class Zamowienie
     {
         public int ZamowienieID { get; set; }
+
+        //Dodanie atrybutów do klas naszego modelu
         [Required(ErrorMessage = "Wprowadź imię")]
         [StringLength(50)]
+        //
         public  string Imie { get; set; }
         [Required(ErrorMessage = "Wprowadź nazwisko")]
         [StringLength(50)]
