@@ -21,9 +21,9 @@ namespace Cukiernia.DAL
 
         //Kiedy będzie tworzona baza nie bęzie dodawane s na końcu
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
+        { 
             base.OnModelCreating(modelBuilder);
-            //using System.Data.Enity.ModelConfiguration.Conventions;
+            //using System.Data.Enity.ModelConfiguration.Conventions;;
             //Wyłącza konwersje , która automatycznie tworzy liczbe mnogą dla nazw tabelw bazie danych
             //Zamiast Kategorie zostałaby stworzona tabela o nazwie Kategoria
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
