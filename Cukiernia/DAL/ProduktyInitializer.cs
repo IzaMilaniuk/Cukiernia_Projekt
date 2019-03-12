@@ -1,22 +1,21 @@
-﻿using Cukiernia.Models;
+﻿using Cukiernia.Migrations;
+using Cukiernia.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Web;
 
 namespace Cukiernia.DAL
 {
-    public class ProduktyInitializer : DropCreateDatabaseAlways <ProduktyContext>
+    //migrowanie bazy do najnowszej wersji
+    public class ProduktyInitializer : MigrateDatabaseToLatestVersion <ProduktyContext, Configuration>
     {
-        protected override void Seed(ProduktyContext context)
-        {
-            SeedKProduktyData(context);
-            base.Seed(context);
-        }
+      
 
         //Dodanie do bazy przykladowe dane
-        private void SeedKProduktyData(ProduktyContext context)
+        public static void SeedKProduktyData(ProduktyContext context)
         {
             var kategorie = new List<Kategoria>
             {
@@ -28,7 +27,7 @@ namespace Cukiernia.DAL
                 new Kategoria() {KategoriaId=6, NazwaKategorii = "xml", NazwaPlikuIkony ="xml.png",OpisKategorii="opis xml" },
                 new Kategoria() {KategoriaId=7, NazwaKategorii = "css", NazwaPlikuIkony ="css.png",OpisKategorii="opis css" },
              };
-            kategorie.ForEach(k => context.Kategorie.Add(k));
+            kategorie.ForEach(k => context.Kategorie.AddOrUpdate(k));  //każda kategoria z listy jest dodawana do bazy
             context.SaveChanges();
 
             var produkty = new List<Produkt>
@@ -42,7 +41,7 @@ namespace Cukiernia.DAL
                 new Produkt() {ProduktId=2, AutorProdukt="Monika", TytulProdukt="Przekładaniec", KategoriaId=1, CenaProdukt=50, Bestseller=true, NazwaPlikuObrazka="ciasto.png",
                 DataDodania=DateTime.Now, OpisProdukt="Przekładaniec zwykły"},
             };
-            produkty.ForEach(k => context.Produkty.Add(k));
+            produkty.ForEach(k => context.Produkty.AddOrUpdate(k));
             context.SaveChanges();
             
         }

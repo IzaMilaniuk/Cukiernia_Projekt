@@ -23,6 +23,8 @@ namespace Cukiernia.Models
         public string OpisProdukt { get; set; }
         public decimal CenaProdukt { get; set; }
         public bool Bestseller { get; set; }
+        public bool Ukryty { get; set; }
+        public string OpisSkrocony { get; set; }
         public virtual Kategoria Kategoria { get; set; }
 
     }

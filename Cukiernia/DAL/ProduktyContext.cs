@@ -15,8 +15,9 @@ namespace Cukiernia.DAL
 
         }
         static ProduktyContext()
-        {
+        {   //wywołanie ProduktyInitializer , by dane z niego pojawiły sie w bazie
             Database.SetInitializer < ProduktyContext>(new ProduktyInitializer());
+
         }
 
         public DbSet<Produkt> Produkty { get; set; }
