@@ -13,10 +13,10 @@ namespace Cukiernia.Controllers
         private ProduktyContext db = new ProduktyContext();
         public ActionResult Index()
         {
-            
-            Kategoria kategoria = new Kategoria { NazwaKategorii = "asp.net_mvc", NazwaPlikuIkony = "aspNetMvc.png ", OpisKategorii = "opis" };
-            db.Kategorie.Add(kategoria);
-            db.SaveChanges(); 
+            //pobieranie liste kategorii z bazy
+            var listaKategorii = db.Kategorie.ToList();
+
+          
             return View();
         }
     }

@@ -14,6 +14,11 @@ namespace Cukiernia.DAL
         {
 
         }
+        static ProduktyContext()
+        {
+            Database.SetInitializer < ProduktyContext>(new ProduktyInitializer());
+        }
+
         public DbSet<Produkt> Produkty { get; set; }
         public DbSet<Kategoria> Kategorie { get; set; }
         public DbSet<Zamowienie> Zamowienia { get; set; }

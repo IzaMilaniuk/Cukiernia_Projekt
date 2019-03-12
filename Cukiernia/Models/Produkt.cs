@@ -21,7 +21,7 @@ namespace Cukiernia.Models
         [StringLength(100)]
         public string NazwaPlikuObrazka { get; set; }
         public string OpisProdukt { get; set; }
-        public string CenaProdukt { get; set; }
+        public decimal CenaProdukt { get; set; }
         public bool Bestseller { get; set; }
         public virtual Kategoria Kategoria { get; set; }
 
