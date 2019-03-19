@@ -19,5 +19,12 @@ namespace Cukiernia.Controllers
           
             return View();
         }
+
+        //metoda ktora zwraca strony statyczne
+        //metoda strony statycznej,ktora bedzie odpowiedzialna za wyswietlanie widokow stron statycznych
+        public ActionResult StronyStatyczne(string nazwa)
+        {
+            return View(nazwa);
+        }
     }
 }
