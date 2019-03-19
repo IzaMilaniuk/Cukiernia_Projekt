@@ -1,7 +1,144 @@
-﻿
-@{
-    ViewBag.Title = "Index";
+﻿<!--Odwolujemy sie do skladni Razor
+    Sciezka do konkretnego loyautu -->
+@*@{ 
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}*@
+<!--tite przekazywany do leyautu-->
+@{ 
+    ViewBag.Title = "Cukiernia";
 }
+    <nav class="kategorieHorizontal">
+        <ul>
+            <li>
+                <a href="link" style="background-image: url(../Content/Kategorie/aspnet.png); ">
+                    ASP.NET
+                </a>
+            </li>
+            <li>
+                <a href="link" style="background-image: url(../Content/Kategorie/csharp.png); ">
+                    C#
+                </a>
+            </li>
+            <li>
+                <a href="link" style="background-image: url(../Content/Kategorie/css.png); ">
+                    CSS
+                </a>
+            </li>
+            <li>
+                <a href="link" style="background-image: url(../Content/Kategorie/javascript.png); ">
+                    Java Script
+                </a>
+            </li>
+            <li>
+                <a href="link" style="background-image: url(../Content/Kategorie/jquery.png); ">
+                    JQuery
+                </a>
+            </li>
+            <li>
+                <a href="link" style="background-image: url(../Content/Kategorie/xml.png); ">
+                    XML
+                </a>
+            </li>
+            <li>
+                <a href="link" style="background-image: url(../Content/Kategorie/html.png); ">
+                    HTML
+                </a>
+            </li>
+        </ul>
+        <a href="link">
+            <img id="baner" src="../Content/Images/baner.png" />
+        </a>
+    </nav>
 
-<h2>Index</h2>
-
+    <section>
+        <ul class="KursyTrzyKolumny duzaListaKursy">
+            <li>
+                <article>
+                    <a class="dodajDoKoszykaLink" href="link">
+                        <img src="../Content/Images/koszyk.png" />
+                    </a>
+                    <a class="kursSzczegolyLink" href="link">
+                        <div class="bestsellerFlag"></div>
+                        <img class="kurs" src="../Content/Kursy/obrazekcss.png" />
+                        <h1>
+                            Tutaj będzie tytuł
+                        </h1>
+                    </a>
+                </article>
+            </li>
+            <li>
+                <article>
+                    <a class="dodajDoKoszykaLink" href="link">
+                        <img src="../Content/Images/koszyk.png" />
+                    </a>
+                    <a class="kursSzczegolyLink" href="link">
+                        <div class="bestsellerFlag"></div>
+                        <img class="kurs" src="../Content/Kursy/obrazekhtml.png" />
+                        <h1>
+                            Tutaj będzie tytuł
+                        </h1>
+                    </a>
+                </article>
+            </li>
+            <li>
+                <article>
+                    <a class="dodajDoKoszykaLink" href="link">
+                        <img src="../Content/Images/koszyk.png" />
+                    </a>
+                    <a class="kursSzczegolyLink" href="link">
+                        <div class="bestsellerFlag"></div>
+                        <img class="kurs" src="../Content/Kursy/obrazekjquery.png" />
+                        <h1>
+                            Tutaj będzie tytuł
+                        </h1>
+                    </a>
+                </article>
+            </li>
+        </ul>
+    </section>
+    <section>
+        <ul class="KursyTrzyKolumny duzaListaKursy">
+            <li>
+                <article>
+                    <a class="dodajDoKoszykaLink" href="link">
+                        <img src="../Content/Images/koszyk.png" />
+                    </a>
+                    <a class="kursSzczegolyLink" href="link">
+                        <div class="newFlag"></div>
+                        <img class="kurs" src="../Content/Kursy/obrazekaspnet.png" />
+                        <h1>
+                            Tutaj będzie tytuł
+                        </h1>
+                    </a>
+                </article>
+            </li>
+            <li>
+                <article>
+                    <a class="dodajDoKoszykaLink" href="link">
+                        <img src="../Content/Images/koszyk.png" />
+                    </a>
+                    <a class="kursSzczegolyLink" href="link">
+                        <div class="newFlag"></div>
+                        <img class="kurs" src="../Content/Kursy/obrazekcsharp.png" />
+                        <h1>
+                            Tutaj będzie tytuł
+                        </h1>
+                    </a>
+                </article>
+            </li>
+            <li>
+                <article>
+                    <a class="dodajDoKoszykaLink" href="link">
+                        <img src="../Content/Images/koszyk.png" />
+                    </a>
+                    <a class="kursSzczegolyLink" href="link">
+                        <div class="newFlag"></div>
+                        <img class="kurs" src="../Content/Kursy/obrazekmvc.png" />
+                        <h1>
+                            Tutaj będzie tytuł
+                        </h1>
+                    </a>
+                </article>
+            </li>
+        </ul>
+    </section>
