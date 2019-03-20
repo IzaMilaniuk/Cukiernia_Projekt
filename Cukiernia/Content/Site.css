@@ -553,9 +553,9 @@ ul.TrzyKolumnyList {
             z-index: -1;
         }
 
-        ul.TrzyKolumnyList li a:hover img.kurs {
+        /*ul.TrzyKolumnyList li a:hover img.kurs {
             
-        }
+        }*/
 
 .manageHeader {
     margin-bottom: 30px;
@@ -1002,8 +1002,8 @@ div.upload input {
         text-decoration: none;
     }
 
-#login-header {
-}
+/*#login-header {
+}*/
 
     #login-header div {
         line-height: 40px;
