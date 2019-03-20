@@ -553,9 +553,8 @@ ul.TrzyKolumnyList {
             z-index: -1;
         }
 
-        /*ul.TrzyKolumnyList li a:hover img.kurs {
-            
-        }*/
+        ul.TrzyKolumnyList li a:hover img.kurs {
+        }
 
 .manageHeader {
     margin-bottom: 30px;
@@ -703,11 +702,10 @@ div.SekcjaHeader {
             }
 
 #koszyk-empty-message {
-    margin : 50px,auto,50px, auto;
-    /*margin-top: 50px;
+    margin-top: 50px;
     margin-bottom: 50px;
     margin-left: auto;
-    margin-right: auto;*/
+    margin-right: auto;
     text-align: center;
 }
 
@@ -800,13 +798,12 @@ a.PrzyciskLink:visited, a.PrzyciskLink:link, a.PrzyciskLink:active {
     }
 
 #userdata-address-table {
-    margin: 50px auto 50px auto;
-    /*margin-left: auto;
+    margin-left: auto;
     margin-right: auto;
-    margin-top: 50px;
-    margin-bottom: 50px;*/
-    border-style: none;
     text-align: left;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-style: none;
 }
 
     #userdata-address-table tr {
@@ -847,14 +844,12 @@ a.PrzyciskLink:visited, a.PrzyciskLink:link, a.PrzyciskLink:active {
     }
 
 #albumedit-address-table {
-    margin:50px auto 50px auto;
-    /*margin-left: auto;
+    margin-left: auto;
     margin-right: auto;
-    
-    margin-top: 50px;
-    margin-bottom: 50px;*/
-    border-style: none;
     text-align: left;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-style: none;
 }
 
     #albumedit-address-table tr {
@@ -1002,8 +997,8 @@ div.upload input {
         text-decoration: none;
     }
 
-/*#login-header {
-}*/
+#login-header {
+}
 
     #login-header div {
         line-height: 40px;
