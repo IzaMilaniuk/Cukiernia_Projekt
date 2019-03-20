@@ -12,7 +12,11 @@ namespace Cukiernia
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-
+            //trasa dla stron statycznych
+            routes.MapRoute(
+                name: "StronyStatyczne", //nazwa trasy
+                url: "strona/{nazwa}.html",  //strony/ <- mozna to zmieniac dowolnie
+                defaults: new { controller = "Home", action = "StronyStatyczne" });
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
