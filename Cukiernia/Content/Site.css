@@ -554,6 +554,7 @@ ul.TrzyKolumnyList {
         }
 
         ul.TrzyKolumnyList li a:hover img.kurs {
+            
         }
 
 .manageHeader {
@@ -702,10 +703,11 @@ div.SekcjaHeader {
             }
 
 #koszyk-empty-message {
-    margin-top: 50px;
+    margin : 50px,auto,50px, auto;
+    /*margin-top: 50px;
     margin-bottom: 50px;
     margin-left: auto;
-    margin-right: auto;
+    margin-right: auto;*/
     text-align: center;
 }
 
@@ -798,12 +800,13 @@ a.PrzyciskLink:visited, a.PrzyciskLink:link, a.PrzyciskLink:active {
     }
 
 #userdata-address-table {
-    margin-left: auto;
+    margin: 50px auto 50px auto;
+    /*margin-left: auto;
     margin-right: auto;
-    text-align: left;
     margin-top: 50px;
-    margin-bottom: 50px;
+    margin-bottom: 50px;*/
     border-style: none;
+    text-align: left;
 }
 
     #userdata-address-table tr {
@@ -844,12 +847,14 @@ a.PrzyciskLink:visited, a.PrzyciskLink:link, a.PrzyciskLink:active {
     }
 
 #albumedit-address-table {
-    margin-left: auto;
+    margin:50px auto 50px auto;
+    /*margin-left: auto;
     margin-right: auto;
-    text-align: left;
+    
     margin-top: 50px;
-    margin-bottom: 50px;
+    margin-bottom: 50px;*/
     border-style: none;
+    text-align: left;
 }
 
     #albumedit-address-table tr {
