@@ -1,54 +1,36 @@
-﻿<!--Odwolujemy sie do skladni Razor
+﻿@model Cukiernia.ViewModels.HomeViewModel
+
+
+<!--Odwolujemy sie do skladni Razor
     Sciezka do konkretnego loyautu -->
-@*@{ 
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}*@
+@*@{
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }*@
 <!--tite przekazywany do leyautu-->
-@{ 
+@{
     ViewBag.Title = "Cukiernia";
 }
-    <nav class="kategorieHorizontal">
-        <ul>
+<nav class="kategorieHorizontal">
+    <ul>
+        <!--pobieramy kategorie z modelu i wygennerujemy kod-->
+        @foreach (var kategoria in Model.Kategorie)
+            {
             <li>
-                <a href="link" style="background-image: url(../Content/Kategorie/aspnet.png); ">
-                    ASP.NET
+                <!--By sprawdzic czy zostaly naprawde wygenerowane dynamicznie kategoriee mozena zainstalowac modul do glimpsa by sprawdzic czy są wykorzystywane zapytania sql . Glimpse.EF6  (8) -->
+                <!--Helper URl przenosi do :metody List kontrolera Produkty, przekazujemy parametr nazwaKategori-->
+                <a href="@Url.Action("List","Produkty", new { nazwaKategori = kategoria.NazwaKategorii.ToLower() })"
+                   style="background-image: url(../Content/Kategorie/aspnet.png); ">
+                    @kategoria.NazwaKategorii
                 </a>
             </li>
-            <li>
-                <a href="link" style="background-image: url(../Content/Kategorie/csharp.png); ">
-                    C#
-                </a>
-            </li>
-            <li>
-                <a href="link" style="background-image: url(../Content/Kategorie/css.png); ">
-                    CSS
-                </a>
-            </li>
-            <li>
-                <a href="link" style="background-image: url(../Content/Kategorie/javascript.png); ">
-                    Java Script
-                </a>
-            </li>
-            <li>
-                <a href="link" style="background-image: url(../Content/Kategorie/jquery.png); ">
-                    JQuery
-                </a>
-            </li>
-            <li>
-                <a href="link" style="background-image: url(../Content/Kategorie/xml.png); ">
-                    XML
-                </a>
-            </li>
-            <li>
-                <a href="link" style="background-image: url(../Content/Kategorie/html.png); ">
-                    HTML
-                </a>
-            </li>
-        </ul>
-        <a href="link">
-            <img id="baner" src="../Content/Images/baner.png" />
-        </a>
-    </nav>
+        }
+    </ul>
+    <a href="link">
+        <img id="baner" src="../Content/Images/baner.png" />
+    </a>
+</nav>
+
+
 
     <section>
         <ul class="KursyTrzyKolumny duzaListaKursy">
