@@ -253,16 +253,16 @@ ul.duzaListaKursy li {
         top: 46%;
     }
 
-ul.KursCena li {
+ul.ProduktCena li {
     width: 256px;
     height: 256px;
 }
 
-    ul.KursCena li a h1 {
+    ul.ProduktCena li a h1 {
         top: 40%;
     }
 
-    ul.KursCena li a:hover h1 {
+    ul.ProduktCena li a:hover h1 {
         top: 41%;
     }
 
