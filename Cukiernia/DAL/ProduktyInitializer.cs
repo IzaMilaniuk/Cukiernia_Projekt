@@ -19,8 +19,8 @@ namespace Cukiernia.DAL
         {
             var kategorie = new List<Kategoria>
             {
-                new Kategoria() { KategoriaId=1, NazwaKategorii="Asp.Net", NazwaPlikuIkony="aspnet.png", OpisKategorii="programowanie w asp net" },
-                new Kategoria() { KategoriaId=2, NazwaKategorii="JavaScript", NazwaPlikuIkony="javascript.png", OpisKategorii="skryptowy język programowania" },
+                new Kategoria() { KategoriaId=1, NazwaKategorii="Ciasto", NazwaPlikuIkony="aspnet.png", OpisKategorii="programowanie w asp net" },
+                new Kategoria() { KategoriaId=2, NazwaKategorii="Bułka", NazwaPlikuIkony="javascript.png", OpisKategorii="skryptowy język programowania" },
                 new Kategoria() { KategoriaId=3, NazwaKategorii="jQuery", NazwaPlikuIkony="jquery.png", OpisKategorii="lekka biblioteka programistyczna dla języka JavaScript" },
                 new Kategoria() { KategoriaId=4, NazwaKategorii="Html5", NazwaPlikuIkony="html.png", OpisKategorii="język wykorzystywany do tworzenia i prezentowania stron internetowych www" },
                 new Kategoria() { KategoriaId=5, NazwaKategorii="Css3", NazwaPlikuIkony="css.png", OpisKategorii="język służący do opisu formy prezentacji (wyświetlania) stron www" },
@@ -34,11 +34,11 @@ namespace Cukiernia.DAL
             {
                 new Produkt() { ProduktId=1, AutorProdukt="Iza", TytulProdukt="Sernik", KategoriaId=1, CenaProdukt= 40, Bestseller=true, NazwaPlikuObrazka="sernik.png",
                 DataDodania = DateTime.Now, OpisProdukt="super ciacho"},
-                new Produkt() {ProduktId=2, AutorProdukt="Monika", TytulProdukt="Bułka pszenna", KategoriaId=2, CenaProdukt=10, Bestseller=true, NazwaPlikuObrazka="bulki.png",
+                new Produkt() {ProduktId=5, AutorProdukt="Monika", TytulProdukt="Bułka pszenna", KategoriaId=2, CenaProdukt=10, Bestseller=true, NazwaPlikuObrazka="pszenna.png",
                 DataDodania=DateTime.Now, OpisProdukt="bulka zwykla"},
-                new Produkt() {ProduktId=2, AutorProdukt="Monika", TytulProdukt="Bułka żytnia", KategoriaId=2, CenaProdukt=10, Bestseller=true, NazwaPlikuObrazka="bulki.png",
+                new Produkt() {ProduktId=2, AutorProdukt="Monika", TytulProdukt="Bułka żytnia", KategoriaId=2, CenaProdukt=10, Bestseller=true, NazwaPlikuObrazka="zytnia.png",
                 DataDodania=DateTime.Now, OpisProdukt="bulka zytnia"},
-                new Produkt() {ProduktId=2, AutorProdukt="Monika", TytulProdukt="Przekładaniec", KategoriaId=1, CenaProdukt=50, Bestseller=true, NazwaPlikuObrazka="ciasto.png",
+                new Produkt() {ProduktId=2, AutorProdukt="Monika", TytulProdukt="Przekładaniec", KategoriaId=1, CenaProdukt=50, Bestseller=true, NazwaPlikuObrazka="przekladaniec.png",
                 DataDodania=DateTime.Now, OpisProdukt="Przekładaniec zwykły"},
             };
             produkty.ForEach(k => context.Produkty.AddOrUpdate(k));
