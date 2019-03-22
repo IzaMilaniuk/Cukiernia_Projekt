@@ -6,18 +6,14 @@ using System.Web.Mvc;
 
 namespace Cukiernia.Controllers
 {
-    public class ProduktyController : Controller
+    public class KoszykController : Controller
     {
-        // GET: Produkty
+        // GET: Koszyk
         public ActionResult Index()
         {
             return View();
         }
-        public ActionResult Lista(string nazwaKategori)
-        {
-            return View();
-        }
-        public ActionResult Szczegoly(string id)
+        public ActionResult DodajDoKoszyka(string id)
         {
             return View();
         }

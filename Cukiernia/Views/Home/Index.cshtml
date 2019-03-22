@@ -1,5 +1,5 @@
 ﻿@model Cukiernia.ViewModels.HomeViewModel
-
+@using Cukiernia.Infrastructure  <!--by byly widoczne helpery-->
 
 <!--Odwolujemy sie do skladni Razor
     Sciezka do konkretnego loyautu -->
@@ -18,8 +18,8 @@
             <li>
                 <!--By sprawdzic czy zostaly naprawde wygenerowane dynamicznie kategoriee mozena zainstalowac modul do glimpsa by sprawdzic czy są wykorzystywane zapytania sql . Glimpse.EF6  (8) -->
                 <!--Helper URl przenosi do :metody List kontrolera Produkty, przekazujemy parametr nazwaKategori-->
-                <a href="@Url.Action("List","Produkty", new { nazwaKategori = kategoria.NazwaKategorii.ToLower() })"
-                   style="background-image: url(../Content/Kategorie/aspnet.png); ">
+                <a href="@Url.Action("Lista","Produkty", new { nazwaKategori = kategoria.NazwaKategorii.ToLower() })"
+                   style="background-image: url(@Url.IkonyKategoriiSciezka(kategoria.NazwaPlikuIkony) ">
                     @kategoria.NazwaKategorii
                 </a>
             </li>
@@ -34,48 +34,24 @@
 
     <section>
         <ul class="KursyTrzyKolumny duzaListaKursy">
+            @foreach (var nowosc in Model.Nowosci)
+            {
             <li>
                 <article>
-                    <a class="dodajDoKoszykaLink" href="link">
+                    <a class="dodajDoKoszykaLink" href="@Url.Action("DodajDoKoszyka","Koszyk",new { id = nowosc.ProduktId }) ">
                         <img src="../Content/Images/koszyk.png" />
                     </a>
-                    <a class="produktSzczegolyLink" href="link">
+                    <a class="produktSzczegolyLink" href="@Url.Action("Szczegoly","Produkty", new { id = nowosc.ProduktId })" >
                         <div class="bestsellerFlag"></div>
-                        <img class="kurs" src="../Content/Produkty/obrazekcss.png" />
+                        <img class="kurs" src="@Url.ObrazkiSciezka(nowosc.NazwaPlikuObrazka)" />
                         <h1>
-                            Tutaj będzie tytuł
+                            @nowosc.TytulProdukt - @nowosc.AutorProdukt
                         </h1>
                     </a>
                 </article>
             </li>
-            <li>
-                <article>
-                    <a class="dodajDoKoszykaLink" href="link">
-                        <img src="../Content/Images/koszyk.png" />
-                    </a>
-                    <a class="produktSzczegolyLink" href="link">
-                        <div class="bestsellerFlag"></div>
-                        <img class="kurs" src="../Content/Produkty/obrazekhtml.png" />
-                        <h1>
-                            Tutaj będzie tytuł
-                        </h1>
-                    </a>
-                </article>
-            </li>
-            <li>
-                <article>
-                    <a class="dodajDoKoszykaLink" href="link">
-                        <img src="../Content/Images/koszyk.png" />
-                    </a>
-                    <a class="produktSzczegolyLink" href="link">
-                        <div class="bestsellerFlag"></div>
-                        <img class="kurs" src="../Content/Produkty/obrazekjquery.png" />
-                        <h1>
-                            Tutaj będzie tytuł
-                        </h1>
-                    </a>
-                </article>
-            </li>
+            }
+
         </ul>
     </section>
     <section>
