@@ -303,6 +303,9 @@
     <Content Include="Views\Home\Regulamin.cshtml" />
     <Content Include="Views\Home\Kontakt.cshtml" />
     <Content Include="Views\Koszyk\DodajDoKoszyka.cshtml" />
+    <Content Include="Views\Produkty\_KategorieMenu.cshtml" />
+    <Content Include="Views\Produkty\Lista.cshtml" />
+    <Content Include="Views\Produkty\_ProduktyList.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -313,7 +316,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="obj\Debug\TempPE\" />
-    <Folder Include="Views\Produkty\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201903121526127_InitialCreate.resx">

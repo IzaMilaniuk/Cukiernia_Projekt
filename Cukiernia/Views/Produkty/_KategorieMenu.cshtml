@@ -1,0 +1,18 @@
+﻿@model IEnumerable<Cukiernia.Models.Kategoria>
+@using Cukiernia.Infrastructure
+
+
+<!--Kontrolka z kategoriami-->
+<nav class="KategorieVertical">
+    <ul>
+        @foreach (var kategoria in Model)
+        {
+        <li>
+            <a href="@Url.Action("Lista","Produkty",new { nazwaKategori =kategoria.NazwaKategorii.ToString() })" 
+               style="background-image: url(@Url.IkonyKategoriiSciezka(kategoria.NazwaPlikuIkony); ">
+                @kategoria.NazwaKategorii
+            </a>
+        </li>
+        }
+    </ul>
+</nav>

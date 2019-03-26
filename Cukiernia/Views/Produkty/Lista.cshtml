@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "Lista";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div id="ListaKategoriZawartosc">
+    @Html.Action("KategorieMenu")
+    <div id="KategorieListPrawaSekcja">
+        <div id="Breadcrumb">
+            <img src="../Content/Images/dommaly.png" />
+            <a href="link">
+                Start > ASP.NET
+            </a>
+        </div>
+        <div id="SekcjaListaKategori">
+            @Html.Partial("_ProduktyList")
+        </div>
+    </div>
+</div>
