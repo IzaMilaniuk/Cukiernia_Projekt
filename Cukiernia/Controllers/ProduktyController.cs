@@ -17,14 +17,16 @@ namespace Cukiernia.Controllers
         }
         public ActionResult Lista(string nazwaKategori)
         {
-            var kategoria = db.Kategorie.Include("Produkt").Where(k => k.NazwaKategorii.ToUpper() == nazwaKategori.ToUpper()).Single(); //pobieramy kategoie i przekazujemy też kursy
+            var kategoria = db.Kategorie.Include("Produkt").Where(k => k.NazwaKategorii.ToUpper() == nazwaKategori.ToUpper()).Single(); //pobieramy kategoie i przekazujemy też produkty
 
             var produkty = kategoria.Produkt.ToList();
             return View(produkty);
         }
-        public ActionResult Szczegoly(string id)
+        public ActionResult Szczegoly(int id)
         {
-            return View();
+            var produkt = db.Produkty.Find(id);
+
+            return View(produkt);
         }
 
 

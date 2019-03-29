@@ -13,6 +13,12 @@ namespace Cukiernia
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.MapRoute(
+                name: "ProduktySzczegoly",
+                url: "produkt-{id}.html",
+                defaults: new { controller = "Produkty", action = "Szczegoly" });
+
+
             //trasa dla kategorii 
             routes.MapRoute(
                 name: "ProduktyList",

@@ -40,7 +40,7 @@
                 <a class="dodajDoKoszykaLink" href="@Url.Action("DodajDoKoszyka","Koszyk",new { id = bestseller.ProduktId })">
                     <img src="../Content/Images/koszyk.png" />
                 </a>
-                <a class="produktSzczegolyLink" href="@Url.Action("Szczegoly","Kursy",new  { id = bestseller.ProduktId })" >
+                <a class="produktSzczegolyLink" href="@Url.Action("Szczegoly","Produkty",new  { id = bestseller.ProduktId })" >
                     <div class="bestsellerFlag"></div>
                     <img class="kurs" src="@Url.ObrazkiSciezka(bestseller.NazwaPlikuObrazka)" />
                     <h1>

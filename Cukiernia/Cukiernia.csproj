@@ -306,6 +306,7 @@
     <Content Include="Views\Produkty\_KategorieMenu.cshtml" />
     <Content Include="Views\Produkty\Lista.cshtml" />
     <Content Include="Views\Produkty\_ProduktyList.cshtml" />
+    <Content Include="Views\Produkty\Szczegoly.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
