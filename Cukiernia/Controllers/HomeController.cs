@@ -37,5 +37,7 @@ namespace Cukiernia.Controllers
         {
             return View(nazwa);
         }
+
+       
     }
 }
