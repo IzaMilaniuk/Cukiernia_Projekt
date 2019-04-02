@@ -31,8 +31,10 @@ namespace Cukiernia.Controllers
 
 
         [ChildActionOnly]  //Ta akcja moze byc wywolana tylko z poziomu innej akcji
+       [OutputCache (Duration =60000)] //zapis dancyh z bazy do cache na 1 dzien
         public ActionResult KategorieMenu()
         {
+            
             var kategorie = db.Kategorie.ToList();
             return PartialView("_KategorieMenu", kategorie);  //przekazujemy kategorie do widoku 
         }
