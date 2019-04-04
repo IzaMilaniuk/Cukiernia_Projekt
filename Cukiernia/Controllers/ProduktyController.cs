@@ -15,11 +15,18 @@ namespace Cukiernia.Controllers
         {
             return View();
         }
-        public ActionResult Lista(string nazwaKategori)
+        public ActionResult Lista(string nazwaKategori, string searchQuery = null)
         {
             var kategoria = db.Kategorie.Include("Produkt").Where(k => k.NazwaKategorii.ToUpper() == nazwaKategori.ToUpper()).Single(); //pobieramy kategoie i przekazujemy też produkty
 
-            var produkty = kategoria.Produkt.ToList();
+            var produkty = kategoria.Produkt.Where(a => (searchQuery == null) ||
+                                                   a.TytulProdukt.ToLower().Contains(searchQuery.ToLower()) ||
+                                                   a.AutorProdukt.ToLower().Contains(searchQuery.ToLower()) &&
+                                                   !a.Ukryty);
+            if(Request.IsAjaxRequest())
+            {
+                return PartialView("_ProduktyList", produkty);
+            }
             return View(produkty);
         }
         public ActionResult Szczegoly(int id)
@@ -37,6 +44,17 @@ namespace Cukiernia.Controllers
             
             var kategorie = db.Kategorie.ToList();
             return PartialView("_KategorieMenu", kategorie);  //przekazujemy kategorie do widoku 
+        }
+
+        public ActionResult ProduktyPodpowiedzi(string term)
+        {//pobiera produkty ograniczamy , nie moga byc ukryte.duze litery
+            //pobieranie 5 produktow(podpowiedzi) i zwraca tylko label ,czyli info o producie
+            //wykorzystujemy select by wziasc tytul produktu
+            var produkty =this.db.Produkty.Where(a => !a.Ukryty && a.TytulProdukt.ToLower().Contains(term.ToLower()))
+                .Take(5).Select(a => new { label = a.TytulProdukt });
+
+            //zwracamy jako json
+            return Json(produkty, JsonRequestBehavior.AllowGet);
         }
     }
 }

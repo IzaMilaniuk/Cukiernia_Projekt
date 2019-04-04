@@ -1,25 +1,27 @@
 ﻿@model IEnumerable<Cukiernia.Models.Produkt>
 @using Cukiernia.Infrastructure
 
-<ul class="KursyTrzyKolumny MalaListaKategorii">
-    @foreach(var produkt in Model)
-    { 
-       <li>
-            <article>
-                <a class="dodajDoKoszykaLink" href="@Url.Action("DodajDoKoszyka","Koszyk",new { id = produkt.ProduktId })">
-                    <img src="@Url.Content("~/Content/Images/koszyk.png")" />
-                </a>
-                @if(produkt.Bestseller)
-                {
-                <div class="bestsellerFlag"></div>
-                }
-                <a class="produktSzczegolyLink" href="@Url.Action("Szczegoly","Produkty", new { id=produkt.ProduktId})">
-                    <img class="kurs" src="@Url.ObrazkiSciezka(produkt.NazwaPlikuObrazka)" />  <!--obrazki wywolanie dynamicznie-->
-                    <h1>
-                       @produkt.AutorProdukt - @produkt.TytulProdukt
-                    </h1>
-                </a>
-            </article>
-        </li>
-    }
-</ul>
+<div id="SekcjaListaKategori">
+    <ul class="KursyTrzyKolumny MalaListaKategorii">
+        @foreach (var produkt in Model)
+        {
+            <li>
+                <article>
+                    <a class="dodajDoKoszykaLink" href="@Url.Action("DodajDoKoszyka","Koszyk",new { id = produkt.ProduktId })">
+                        <img src="@Url.Content("~/Content/Images/koszyk.png")" />
+                    </a>
+                    @if (produkt.Bestseller)
+                    {
+                        <div class="bestsellerFlag"></div>
+                    }
+                    <a class="produktSzczegolyLink" href="@Url.Action("Szczegoly","Produkty", new { id=produkt.ProduktId})">
+                        <img class="kurs" src="@Url.ObrazkiSciezka(produkt.NazwaPlikuObrazka)" />  <!--obrazki wywolanie dynamicznie-->
+                        <h1>
+                            @produkt.AutorProdukt - @produkt.TytulProdukt
+                        </h1>
+                    </a>
+                </article>
+            </li>
+        }
+    </ul>
+</div>
