@@ -7,6 +7,9 @@
     <mvcSiteMapNode title="Kategorie" controller="Produkty" action="Lista" dynamicNodeProvider="Cukiernia.Infrastructure.KategorieDynamicNodeProvider, Cukiernia" >
       <mvcSiteMapNode title="Produkt" controller="Produkty" action="Szczegoly" dynamicNodeProvider="Cukiernia.Infrastructure.ProduktySzczegolyDynamicNodeProvider, Cukiernia" />
     </mvcSiteMapNode>
+    <mvcSiteMapNode title="Koszyk" controller="Koszyk" action="Index"></mvcSiteMapNode>
+        <mvcSiteMapNode title="Dane zamowienia" controller="Koszyk" action="Zaplac"></mvcSiteMapNode>
+        <mvcSiteMapNode title="Potwierdzenie zamowienia" controller="Koszyk" action="PotwierdzZamowienie"></mvcSiteMapNode>
   </mvcSiteMapNode>
 
 </mvcSiteMap>

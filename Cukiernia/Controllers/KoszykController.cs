@@ -43,5 +43,20 @@ namespace Cukiernia.Controllers
            return koszykMenager.PobierzIloscPozycjiKoszyka();
 
         }
+        public ActionResult UsunZKoszyka(int produktId)
+        {
+            int iloscPozycji = koszykMenager.UsunZKoszyka(produktId);
+            int iloscPozycjiKoszyka = koszykMenager.PobierzIloscPozycjiKoszyka();
+            decimal wartoscKoszyka = koszykMenager.PobierzWartoscKoszyka();
+
+            var wynik = new KoszykUsuwanieViewModel
+            {
+                IdPozycjiUsuwanej = produktId,
+                IloscPozycjiUsuwanej = iloscPozycji,
+                KoszykCenaCalkowita = wartoscKoszyka,
+                KoszykIloscPozycji = iloscPozycjiKoszyka,
+            };
+            return Json(wynik);
+        }
     }
 }

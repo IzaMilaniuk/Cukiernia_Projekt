@@ -57,3 +57,43 @@
         </section>
     </div>
 </div>
+
+@section Scripts{
+    @System.Web.Optimization.Scripts.Render("~/bundles/jqueryAndJqueryUI")
+    
+
+    <!--Przycisk Usun produkt-->
+    <script type="text/javascript">
+        $(function () {
+            $(".usunProdukt").click(function () {
+
+                var recordDoUsuniecia = $(this).attr("data-id");
+
+                if (recordDoUsuniecia != '') {
+                    $.post("/Koszyk/UsunZKoszyka", { "produktId": recordDoUsuniecia },
+                        function (response) {
+                            if (response.IloscPozycjiUsuwanej == 0) {
+
+                                $('#koszyk-wiersz-' + response.IdPozycjiUsuwanej).fadeOut('slow', function () {
+                                    if (response.KoszykIloscPozycji == 0) {
+                                        $("#koszyk-empty-message").removeClass("hidden");
+                                    }
+                                });
+                            } else {
+                                $('#koszyk-ilosc-pozycji-' + response.IdPozycjiUsuwanej).text(response.IloscPozycjiUsuwanej);
+                            }
+
+                            if (response.KoszykIloscPozycji == 0) {
+                                $('#koszyk-button-zaplac').addClass('hidden');
+                                $('#CenaCalkowita').addClass('invisible');
+                            }
+                            $('#calkowita-cena-wartosc').text(response.KoszykCenaCalkowita);
+                            $('#koszyk-naglowek-ilosc-elementow').text(response.KoszykIloscPozycji);
+                        });
+                    return false;
+                }
+            });
+        });
+</script>
+    
+    }
