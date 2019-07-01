@@ -1,0 +1,59 @@
+﻿@model Cukiernia.ViewModels.KoszykViewModel
+@using Cukiernia.Infrastructure
+
+@{
+    ViewBag.Title = "Koszyk";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="ListaKategoriZawartosc">
+    @Html.Action("KategorieMenu","Produkty")
+    <div id="KategorieListPrawaSekcja">
+        <div id="Breadcrumb">
+            <img src="../Content/Images/dommaly.png" />
+            <a href="link">
+                @Html.MvcSiteMap().SiteMapPath()
+            </a>
+        </div>
+
+        <section class="SekcjaKoszyk">
+            <div class="SekcjaHeader" style="margin-bottom: 0px;">
+                <h1>Twój koszyk</h1>
+            </div>
+
+            <table id="koszykTabela">
+                @foreach (var pozycjaKoszyka in Model.PozycjeKoszyka)
+                {
+                    <tr id="koszyk-wiersz-@pozycjaKoszyka.Produkt.ProduktId">
+                        <td>
+                            <a href="@Url.Action("Szczegoly","Produkty",new { id = pozycjaKoszyka.Produkt.ProduktId })">
+                                <img src="@Url.Content("~/Content/Produkty/" + pozycjaKoszyka.Produkt.NazwaPlikuObrazka)" />
+                            </a>
+                        </td>
+                        <td><a href="@Url.Action("Szczegoly","Produkty",new { id = pozycjaKoszyka.Produkt.ProduktId })">@pozycjaKoszyka.Produkt.TytulProdukt</a></td>
+                        <td>Ilość: <span id="koszyk-ilosc-pozycji-@pozycjaKoszyka.Produkt.ProduktId">@pozycjaKoszyka.Ilosc</span></td>
+                        <td>@String.Format("{0:0.##}", pozycjaKoszyka.Wartosc) zł</td>
+                        <td><a class="usunProdukt" data-id="@pozycjaKoszyka.Produkt.ProduktId" href="#">Usuń</a></td>
+                    </tr>
+                }
+
+                <tr id="koszyk-empty-message" @if (Model.PozycjeKoszyka != null && Model.PozycjeKoszyka.Count > 0) { <text> class="hidden" </text>  }>
+                    <td>Twoj koszyk jest pusty. Może chcesz coś dodać do koszyka? :) </td>
+                </tr>
+            </table>
+
+            <div id="CenaCalkowita" style="">
+                Razem:  <span id="calkowita-cena-wartosc">@String.Format("{0:0.##}", Model.CenaCalkowita)</span> zł
+            </div>
+
+            <div class="SekcjaPrzyciski">
+                <a class="PrzyciskLink" href="link">Kontynułuj zakupy</a>
+                @if (Model.CenaCalkowita > 0)
+                {
+                    <a class="PrzyciskLink" id="koszyk-button-zaplac" href="@Url.Action("Zaplac","Koszyk")">Zapłać</a>
+                }
+                
+            </div>
+        </section>
+    </div>
+</div>
