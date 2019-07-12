@@ -493,6 +493,12 @@
     <Content Include="Views\Produkty\Lista.cshtml" />
     <Content Include="Views\Produkty\_ProduktyList.cshtml" />
     <Content Include="Views\Produkty\Szczegoly.cshtml" />
+    <Content Include="Views\Koszyk\Index.cshtml" />
+    <Content Include="Views\Shared\_RightSectionLayout.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="scripts\jquery-3.4.1.min.map" />
+    <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\SiteMapTitleHelperModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\SiteMapPathHelperModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\SiteMapNodeModelList.cshtml" />
@@ -501,12 +507,6 @@
     <Content Include="Views\Shared\DisplayTemplates\MetaRobotsHelperModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\MenuHelperModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\CanonicalHelperModel.cshtml" />
-    <Content Include="Views\Koszyk\Index.cshtml" />
-    <Content Include="Views\Shared\_RightSectionLayout.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="scripts\jquery-3.4.1.slim.min.map" />
-    <Content Include="scripts\jquery-3.4.1.min.map" />
-    <Content Include="Views\Account\Register.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -4,19 +4,7 @@
             xsi:schemaLocation="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0 MvcSiteMapSchema.xsd">
 
   <mvcSiteMapNode title="Home" controller="Home" action="Index">
-    <mvcSiteMapNode title="Kategorie" controller="Produkty" action="Lista" dynamicNodeProvider="Cukiernia.Infrastructure.KategorieDynamicNodeProvider, Cukiernia" >
-      <mvcSiteMapNode title="Produkt" controller="Produkty" action="Szczegoly" dynamicNodeProvider="Cukiernia.Infrastructure.ProduktySzczegolyDynamicNodeProvider, Cukiernia" />
-    </mvcSiteMapNode>
-    <mvcSiteMapNode title="Koszyk" controller="Koszyk" action="Index">
-      <mvcSiteMapNode title="Dane zamowienia" controller="Koszyk" action="Zaplac"/>
-      <mvcSiteMapNode title="Potwierdzenie zamowienia" controller="Koszyk" action="PotwierdzZamowienie"/>
-    </mvcSiteMapNode>
-    <mvcSiteMapNode title="Konto" controller="Manage" action="Index">
-      <mvcSiteMapNode title="Rejestracja" controller="Account" action="Register" />
-      <mvcSiteMapNode title="Logowanie" controller="Account" action="Login" />
-      <mvcSiteMapNode title="Edycja Produktu" controller="Manage" action="DodajProdukt" />
-      <mvcSiteMapNode title="Twoje dane" controller="Manage" action="Index" />
-      <mvcSiteMapNode title="Zamówienia" controller="Manage" action="ListaZamowien" />
-    </mvcSiteMapNode>
+    <mvcSiteMapNode title="About" controller="Home" action="About"/>
   </mvcSiteMapNode>
+
 </mvcSiteMap>
