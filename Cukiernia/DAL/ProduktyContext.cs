@@ -1,4 +1,5 @@
 ﻿using Cukiernia.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -8,7 +9,7 @@ using System.Web;
 
 namespace Cukiernia.DAL
 {
-    public class ProduktyContext: DbContext
+    public class ProduktyContext: IdentityDbContext<ApplicationUser>
     {
         public ProduktyContext() : base("ProduktyContext")
         {
@@ -18,6 +19,10 @@ namespace Cukiernia.DAL
         {   //wywołanie ProduktyInitializer , by dane z niego pojawiły sie w bazie
             Database.SetInitializer < ProduktyContext>(new ProduktyInitializer());
 
+        }
+        public static ProduktyContext Create()
+        {
+            return new ProduktyContext();
         }
 
         public DbSet<Produkt> Produkty { get; set; }
