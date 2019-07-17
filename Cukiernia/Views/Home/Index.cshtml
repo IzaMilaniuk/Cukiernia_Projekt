@@ -10,7 +10,17 @@
 @{
     ViewBag.Title = "Cukiernia";
 }
+
+
+
+
+<!--------------RenderBody()---------->
+
+
+
+
 <nav class="kategorieHorizontal">
+
     <ul>
         <!--pobieramy kategorie z modelu i wygennerujemy kod-->
         @foreach (var kategoria in Model.Kategorie)
@@ -26,7 +36,7 @@
         }
     </ul>
     <a href="link">
-        <img id="baner" src="../Content/Images/baner.png" />
+        <img id="baner" src="../Content/Images/baner.png" style="    width: -webkit-fill-available;margin: 5% 0px 5% 0px;" />
     </a>
 </nav>
 

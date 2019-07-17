@@ -5,18 +5,28 @@
     <!--wykorzystanie z helpera url.content by generował odpowiednie linki-->
     <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" />
     @System.Web.Optimization.Styles.Render("~/Content/themes/base/css")
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="The description of my page" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!--  <link href="-Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" />-->
+
+
 </head>
+
+
+
+
+
 <body>
+    
+
     <header class="header-main">
         <div style="overflow: hidden;">
             <a id="koszykHeaderLink" href="@Url.Action("Index", "Koszyk")">
                 Koszyk (<span id="koszyk-naglowek-ilosc-elementow">@Html.Action("PobierzIloscElementowKoszyka","Koszyk")</span>)
                 <span></span>
             </a>
-            @Html.Partial("_LoginPartial");
+            @Html.Partial("_LoginPartial")
 
             <a id="indexHeaderLogo" href="@Url.Content("~/")">
                 <img src="@Url.Content("~/Content/Images/logo.png")" class="center" />
@@ -55,3 +65,9 @@
 
 </body>
 </html>
+@section Scripts
+{
+    <script src="~/scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+}
