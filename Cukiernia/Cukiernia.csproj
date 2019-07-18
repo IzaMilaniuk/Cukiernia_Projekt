@@ -525,6 +525,10 @@
     <Compile Include="Migrations\201907131953288_DodaniaAspIdentity.Designer.cs">
       <DependentUpon>201907131953288_DodaniaAspIdentity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201907181705455_Zamowienia.cs" />
+    <Compile Include="Migrations\201907181705455_Zamowienia.Designer.cs">
+      <DependentUpon>201907181705455_Zamowienia.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DaneUzytkownika.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -587,6 +591,8 @@
     <Content Include="scripts\popper.js.map" />
     <Content Include="scripts\popper-utils.min.js.map" />
     <Content Include="scripts\popper-utils.js.map" />
+    <Content Include="Views\Koszyk\Zaplac.cshtml" />
+    <Content Include="Views\Koszyk\PotwierdzenieZamowienia.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -613,6 +619,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201907131953288_DodaniaAspIdentity.resx">
       <DependentUpon>201907131953288_DodaniaAspIdentity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907181705455_Zamowienia.resx">
+      <DependentUpon>201907181705455_Zamowienia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="obj\Debug\Cukiernia.Migrations.dodaniePolaOpisSkrocony.resources" />
     <EmbeddedResource Include="obj\Debug\Cukiernia.Migrations.dodaniePolaTest.resources" />

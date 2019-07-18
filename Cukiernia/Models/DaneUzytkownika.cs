@@ -18,5 +18,6 @@ namespace Cukiernia.Models
 
         [EmailAddress(ErrorMessage = "Błędny format adresu e-mail.")]
         public string Email { get; set; }
+        public string KodPocztowy { get; internal set; }
     }
 }

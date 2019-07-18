@@ -131,7 +131,7 @@ namespace Cukiernia.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, DaneUzytkownika =new DaneUzytkownika() };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, DaneUzytkownika = new DaneUzytkownika() };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -157,6 +157,7 @@ namespace Cukiernia.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
+            var name = User.Identity.Name;
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
             return RedirectToAction("Index", "Home");
         }
