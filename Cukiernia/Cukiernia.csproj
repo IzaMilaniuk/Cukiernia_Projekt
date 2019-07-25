@@ -291,6 +291,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Cukiernia.mdf" />
+    <Content Include="App_Data\Cukiernia_log.ldf">
+      <DependentUpon>Cukiernia.mdf</DependentUpon>
+    </Content>
     <Content Include="bin\Cukiernia.dll" />
     <Content Include="bin\Cukiernia.pdb" />
     <Content Include="bin\EntityFramework.dll" />
@@ -428,7 +432,9 @@
     <Content Include="obj\Debug\Cukiernia.csprojResolveAssemblyReference.cache" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="bin\ApplicationInsights.config" />
-    <Content Include="bin\Cukiernia.dll.config" />
+    <Content Include="bin\Cukiernia.dll.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="bin\roslyn\Microsoft.CSharp.Core.targets" />
     <Content Include="bin\roslyn\Microsoft.VisualBasic.Core.targets" />
     <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
@@ -478,7 +484,9 @@
     <Content Include="scripts\umd\popper-utils.min.js" />
     <Content Include="scripts\umd\popper.js" />
     <Content Include="scripts\umd\popper.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -488,6 +496,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KoszykController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProduktyController.cs" />
     <Compile Include="DAL\ProduktyContext.cs" />
     <Compile Include="DAL\ProduktyInitializer.cs" />
@@ -546,6 +555,7 @@
     <Compile Include="ViewModels\HomeViewModel.cs" />
     <Compile Include="ViewModels\KoszykUsuwanieViewModel.cs" />
     <Compile Include="ViewModels\KoszykViewModel.cs" />
+    <Compile Include="ViewModels\ManageViewModels.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -593,6 +603,8 @@
     <Content Include="scripts\popper-utils.js.map" />
     <Content Include="Views\Koszyk\Zaplac.cshtml" />
     <Content Include="Views\Koszyk\PotwierdzenieZamowienia.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Shared\_ManageLayout.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -601,7 +613,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <ItemGroup>
@@ -633,6 +644,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

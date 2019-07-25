@@ -158,7 +158,8 @@ namespace Cukiernia.Controllers
         public ActionResult LogOff()
         {
             var name = User.Identity.Name;
-            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+          //  logger.Info("Wylogowanie | " + name);
+            AuthenticationManager.SignOut();
             return RedirectToAction("Index", "Home");
         }
 
