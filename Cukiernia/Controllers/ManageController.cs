@@ -1,4 +1,6 @@
-﻿using Cukiernia.Models;
+﻿
+
+using Cukiernia.Models;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
@@ -17,9 +19,11 @@ using Cukiernia.Infrastructure;
 using NLog;
 using System.Net;
 
+
 namespace Cukiernia.Controllers
 {
     [Authorize]
+ 
     public class ManageController : Controller
     {
         private ProduktyContext db;
@@ -61,6 +65,7 @@ namespace Cukiernia.Controllers
 
             if (User.IsInRole("Admin"))
                 ViewBag.UserIsAdmin = true;
+
             else
                 ViewBag.UserIsAdmin = false;
 

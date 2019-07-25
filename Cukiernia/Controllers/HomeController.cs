@@ -10,6 +10,9 @@ using System.Web.Mvc;
 
 namespace Cukiernia.Controllers
 {
+  
+    
+
     public class HomeController : Controller
     {
         private ProduktyContext db = new ProduktyContext();
