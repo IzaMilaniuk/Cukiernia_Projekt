@@ -21,18 +21,8 @@ time, mark, audio, video {
 
 body {
     line-height: 1;
-    
-            width: min-content;
 }
-.header-main{
-    background-color: white;
-}
-.main-box{
-         width: 120vh;
-    margin: auto;
-        padding: 5vh;
-    background-color: white;
-}
+
 input, select, textarea, button {
     font-family: inherit;
 }
@@ -110,10 +100,9 @@ input, select {
 /* Main page styles */
 
 body {
-     
+    width: 1000px;
     margin: auto;
     font-family: 'Segoe UI';
-    background-color: #ffc0cb42;
 }
 
 a:hover, a:visited, a:link, a:active {
@@ -130,7 +119,8 @@ a:hover, a:visited, a:link, a:active {
 
 .center {
     display: block;
-    margin:auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .hidden {
@@ -165,6 +155,7 @@ a:hover, a:visited, a:link, a:active {
 
 #indexHeaderLogo {
     margin-top: 25px;
+    margin-bottom: 35px;
     display: block;
 }
 
@@ -174,6 +165,8 @@ a:hover, a:visited, a:link, a:active {
 
 nav.kategorieHorizontal ul {
     overflow: hidden;
+    border-left: 1px solid #E5E5E5;
+    border-top: 1px solid #E5E5E5;
     font-size: 18px;
     font-family: 'Segoe UI Semibold', 'Segoe WP', 'Segoe UI';
 }
@@ -181,11 +174,12 @@ nav.kategorieHorizontal ul {
     nav.kategorieHorizontal ul li {
         margin: auto;
         float: left;
-        width: 33%;
+        width: 332px;
         /*padding-left: 50px;*/
         height: 54px;
         text-align: left;
-        border:1px solid #E5E5E5;
+        border-right: 1px solid #E5E5E5;
+        border-bottom: 1px solid #E5E5E5;
         line-height: 54px;
     }
 
@@ -211,7 +205,7 @@ nav.kategorieHorizontal ul {
 }
 
 #KategorieListPrawaSekcja {
-   float: left;
+    float: left;
     margin-left: 29px;
 }
 
@@ -247,25 +241,25 @@ nav.KategorieVertical {
             width: 100%;
             display: block;
             height: 100%;
-            text-align:center;
+            padding-left: 75px;
             background-repeat: no-repeat;
             background-position-x: 5px;
             background-position-y: 50%;
         }
 
-#SekcjaProdukt {
+#SekcjaKurs {
     width: 768px;
     float: left;
     margin-top: 20px;
 }
 
-#ProduktLewa {
+#KursLewa {
     width: 335px;
     float: left;
     margin-right: 28px;
 }
 
-    #ProduktLewa img {
+    #KursLewa img {
         height: 335px;
         float: left;
         display: block;
@@ -308,16 +302,16 @@ nav.KategorieVertical {
         background-image: url(../Content/Images/twitter-share.png);
     }
 
-#ProduktPrawa {
+#KursPrawa {
     float: left;
     width: 405px;
 }
 
-    #ProduktPrawa #ProduktNazwa {
+    #KursPrawa #KursNazwa {
         border: 5px solid #0a5d7c;
     }
 
-        #ProduktPrawa #ProduktNazwa > h1 {
+        #KursPrawa #KursNazwa > h1 {
             margin-top: 20px;
             font-family: 'Segoe UI Light';
             font-size: 38px;
@@ -327,7 +321,7 @@ nav.KategorieVertical {
             text-align: center;
         }
 
-        #ProduktPrawa #ProduktNazwa > h2 {
+        #KursPrawa #KursNazwa > h2 {
             margin-top: 15px;
             margin-bottom: 20px;
             font-size: 20px;
@@ -338,11 +332,11 @@ nav.KategorieVertical {
             text-align: center;
         }
 
-#ProduktCena {
+#KursCena {
     overflow: hidden;
 }
 
-    #ProduktCena > div {
+    #KursCena > div {
         float: left;
         width: 332px;
         height: 67px;
@@ -354,13 +348,13 @@ nav.KategorieVertical {
         font-weight: normal;
     }
 
-        #ProduktCena > div > span {
+        #KursCena > div > span {
             font-size: 19px;
             font-family: 'Segoe UI Light';
             margin-left: 5px;
         }
 
-    #ProduktCena > a {
+    #KursCena > a {
         float: left;
         width: 73px;
         height: 67px;
@@ -370,7 +364,7 @@ nav.KategorieVertical {
         background-position: center center;
     }
 
-#ProduktOpis {
+#KursOpis {
     font-size: 18px;
     line-height: 22px;
     color: #39312E;
@@ -379,7 +373,7 @@ nav.KategorieVertical {
     text-align: justify;
 }
 
-#ProduktInfo {
+#KursInfo {
     font-size: 18px;
     line-height: 22px;
     color: #39312E;
@@ -422,19 +416,15 @@ ul.MalaListaKategorii li {
 
 
 ul.KursyTrzyKolumny {
-  overflow: hidden;
+    overflow: hidden;
     list-style-type: none;
     font-size: 18px;
-    margin: auto;
-        width: fit-content;
-    text-align: center;
 }
 
     ul.KursyTrzyKolumny li {
-           float: left;
-    position: relative;
-    opacity: 0.8;
-
+        float: left;
+        position: relative;
+        /*opacity: 0.2;*/
     }
 
         ul.KursyTrzyKolumny li article {
@@ -453,7 +443,7 @@ ul.KursyTrzyKolumny {
                 vertical-align: top;
             }
 
-        ul.KursyTrzyKolumny li a.produktSzczegolyLink {
+        ul.KursyTrzyKolumny li a.kursSzczegolyLink {
             display: block;
             height: 100%;
         }
@@ -490,7 +480,7 @@ ul.KursyTrzyKolumny {
             height: 100%;
             width: 100%;
             z-index: -1;
-            opacity: 0.7;
+            opacity: 0.1;
             -webkit-transition: opacity 0.5s ease;
             -o-transition: opacity 0.5s ease;
             -moz-transition: opacity 0.5s ease;
@@ -505,13 +495,13 @@ ul.KursyTrzyKolumny {
             transition: opacity 1s ease;
         }
 
-ul.duzaListaProdukty-bottom li {
+ul.duzaListaKursy-bottom li {
     width: 333.33px;
     height: 333.33px;
     font-size: 15px;
 }
 
-    ul.duzaListaProdukty-bottom li a h1 {
+    ul.duzaListaKursy-bottom li a h1 {
         bottom: 0px;
     }
 
@@ -533,7 +523,7 @@ ul.TrzyKolumnyList {
         }
 
 
-        ul.TrzyKolumnyList li a.produktSzczegolyLink {
+        ul.TrzyKolumnyList li a.kursSzczegolyLink {
             display: block;
             height: 100%;
         }
@@ -563,8 +553,8 @@ ul.TrzyKolumnyList {
             z-index: -1;
         }
 
-        /*ul.TrzyKolumnyList li a:hover img.kurs {
-        }*/
+        ul.TrzyKolumnyList li a:hover img.kurs {
+        }
 
 .manageHeader {
     margin-bottom: 30px;
@@ -712,11 +702,10 @@ div.SekcjaHeader {
             }
 
 #koszyk-empty-message {
-    margin: 50px auto 50px auto;
-    /*margin-top: 50px;
+    margin-top: 50px;
     margin-bottom: 50px;
     margin-left: auto;
-    margin-right: auto;*/
+    margin-right: auto;
     text-align: center;
 }
 
@@ -809,13 +798,12 @@ a.PrzyciskLink:visited, a.PrzyciskLink:link, a.PrzyciskLink:active {
     }
 
 #userdata-address-table {
-    margin: 50px auto 50px auto;
-    /*margin-left: auto;
+    margin-left: auto;
     margin-right: auto;
-    margin-top: 50px;
-    margin-bottom: 50px;*/
-    border-style: none;
     text-align: left;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-style: none;
 }
 
     #userdata-address-table tr {
@@ -856,12 +844,11 @@ a.PrzyciskLink:visited, a.PrzyciskLink:link, a.PrzyciskLink:active {
     }
 
 #albumedit-address-table {
-    margin: 50px auto 50px auto;
-    /*margin-left: auto;
+    margin-left: auto;
     margin-right: auto;
-    margin-top: 50px;
-    margin-bottom: 50px;*/
     text-align: left;
+    margin-top: 50px;
+    margin-bottom: 50px;
     border-style: none;
 }
 
@@ -1010,8 +997,8 @@ div.upload input {
         text-decoration: none;
     }
 
-/*#login-header {
-}*/
+#login-header {
+}
 
     #login-header div {
         line-height: 40px;
