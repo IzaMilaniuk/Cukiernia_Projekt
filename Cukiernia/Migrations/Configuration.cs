@@ -17,7 +17,8 @@ namespace Cukiernia.Migrations
         //metoda seed,ktora wpisuje przykladowe dane
         protected override void Seed(Cukiernia.DAL.ProduktyContext context)
         {
-         //   ProduktyInitializer.SeedKProduktyData(context); 
+          ProduktyInitializer.SeedKProduktyData(context);
+            ProduktyInitializer.SeedUzytkownicy(context);
          //kom by nie nadpisywac rekordow w bazie
 
 

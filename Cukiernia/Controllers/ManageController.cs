@@ -26,7 +26,7 @@ namespace Cukiernia.Controllers
  
     public class ManageController : Controller
     {
-        private ProduktyContext db;
+        private ProduktyContext db = new ProduktyContext();
 
         public enum ManageMessageId
         {
@@ -148,6 +148,46 @@ namespace Cukiernia.Controllers
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ExternalCookie, DefaultAuthenticationTypes.TwoFactorCookie);
             AuthenticationManager.SignIn(new AuthenticationProperties { IsPersistent = isPersistent }, await user.GenerateUserIdentityAsync(UserManager));
+        }
+        public ActionResult ListaZamowien()
+        {
+            var name = User.Identity.Name;
+         //   logger.Info("Admin zamowienia | " + name);
+
+            bool isAdmin = User.IsInRole("Admin");
+            ViewBag.UserIsAdmin = isAdmin;
+
+            IEnumerable<Zamowienie> zamowieniaUzytkownika;
+
+            // Dla administratora zwracamy wszystkie zamowienia
+            if (isAdmin)
+            {
+                zamowieniaUzytkownika = db.Zamowienia.Include("PozycjeZamowienia").OrderByDescending(o => o.DataDodania).ToArray();
+            }
+            else
+            {
+                //zamowienie dla danego usera
+                var userId = User.Identity.GetUserId();
+                zamowieniaUzytkownika = db.Zamowienia.Where(o => o.UserId == userId).Include("PozycjeZamowienia").OrderByDescending(o => o.DataDodania).ToArray();
+            }
+            //wrot listy zamowien do widoku
+            return View(zamowieniaUzytkownika);
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "Admin")]
+        public StanZamowienia ZmianaStanuZamowienia(Zamowienie zamowienie)
+        {
+            Zamowienie zamowienieDoModyfikacji = db.Zamowienia.Find(zamowienie.ZamowienieID);
+            zamowienieDoModyfikacji.StanZamowienia = zamowienie.StanZamowienia;
+            db.SaveChanges();
+
+            if (zamowienieDoModyfikacji.StanZamowienia == StanZamowienia.Zrealizowane)
+            {
+          //      this.mailService.WyslanieZamowienieZrealizowaneEmail(zamowienieDoModyfikacji);
+            }
+
+            return zamowienie.StanZamowienia;
         }
     }
 }

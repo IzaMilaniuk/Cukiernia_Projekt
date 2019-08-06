@@ -205,7 +205,7 @@ nav.kategorieHorizontal ul {
 }
 
 #KategorieListPrawaSekcja {
-    float: left;
+   float: left;
     margin-left: 29px;
 }
 
@@ -247,19 +247,19 @@ nav.KategorieVertical {
             background-position-y: 50%;
         }
 
-#SekcjaKurs {
+#SekcjaProdukt {
     width: 768px;
     float: left;
     margin-top: 20px;
 }
 
-#KursLewa {
+#ProduktLewa {
     width: 335px;
     float: left;
     margin-right: 28px;
 }
 
-    #KursLewa img {
+    #ProduktLewa img {
         height: 335px;
         float: left;
         display: block;
@@ -302,16 +302,16 @@ nav.KategorieVertical {
         background-image: url(../Content/Images/twitter-share.png);
     }
 
-#KursPrawa {
+#ProduktPrawa {
     float: left;
     width: 405px;
 }
 
-    #KursPrawa #KursNazwa {
+    #ProduktPrawa #ProduktNazwa {
         border: 5px solid #0a5d7c;
     }
 
-        #KursPrawa #KursNazwa > h1 {
+        #ProduktPrawa #ProduktNazwa > h1 {
             margin-top: 20px;
             font-family: 'Segoe UI Light';
             font-size: 38px;
@@ -321,7 +321,7 @@ nav.KategorieVertical {
             text-align: center;
         }
 
-        #KursPrawa #KursNazwa > h2 {
+        #ProduktPrawa #ProduktNazwa > h2 {
             margin-top: 15px;
             margin-bottom: 20px;
             font-size: 20px;
@@ -332,11 +332,11 @@ nav.KategorieVertical {
             text-align: center;
         }
 
-#KursCena {
+#ProduktCena {
     overflow: hidden;
 }
 
-    #KursCena > div {
+    #ProduktCena > div {
         float: left;
         width: 332px;
         height: 67px;
@@ -348,13 +348,13 @@ nav.KategorieVertical {
         font-weight: normal;
     }
 
-        #KursCena > div > span {
+        #ProduktCena > div > span {
             font-size: 19px;
             font-family: 'Segoe UI Light';
             margin-left: 5px;
         }
 
-    #KursCena > a {
+    #ProduktCena > a {
         float: left;
         width: 73px;
         height: 67px;
@@ -364,7 +364,7 @@ nav.KategorieVertical {
         background-position: center center;
     }
 
-#KursOpis {
+#ProduktOpis {
     font-size: 18px;
     line-height: 22px;
     color: #39312E;
@@ -373,7 +373,7 @@ nav.KategorieVertical {
     text-align: justify;
 }
 
-#KursInfo {
+#ProduktInfo {
     font-size: 18px;
     line-height: 22px;
     color: #39312E;
@@ -443,7 +443,7 @@ ul.KursyTrzyKolumny {
                 vertical-align: top;
             }
 
-        ul.KursyTrzyKolumny li a.kursSzczegolyLink {
+        ul.KursyTrzyKolumny li a.produktSzczegolyLink {
             display: block;
             height: 100%;
         }
@@ -495,13 +495,13 @@ ul.KursyTrzyKolumny {
             transition: opacity 1s ease;
         }
 
-ul.duzaListaKursy-bottom li {
+ul.duzaListaProdukty-bottom li {
     width: 333.33px;
     height: 333.33px;
     font-size: 15px;
 }
 
-    ul.duzaListaKursy-bottom li a h1 {
+    ul.duzaListaProdukty-bottom li a h1 {
         bottom: 0px;
     }
 
@@ -523,7 +523,7 @@ ul.TrzyKolumnyList {
         }
 
 
-        ul.TrzyKolumnyList li a.kursSzczegolyLink {
+        ul.TrzyKolumnyList li a.produktSzczegolyLink {
             display: block;
             height: 100%;
         }
@@ -553,8 +553,8 @@ ul.TrzyKolumnyList {
             z-index: -1;
         }
 
-        ul.TrzyKolumnyList li a:hover img.kurs {
-        }
+        /*ul.TrzyKolumnyList li a:hover img.kurs {
+        }*/
 
 .manageHeader {
     margin-bottom: 30px;
@@ -702,10 +702,11 @@ div.SekcjaHeader {
             }
 
 #koszyk-empty-message {
-    margin-top: 50px;
+    margin: 50px auto 50px auto;
+    /*margin-top: 50px;
     margin-bottom: 50px;
     margin-left: auto;
-    margin-right: auto;
+    margin-right: auto;*/
     text-align: center;
 }
 
@@ -798,12 +799,13 @@ a.PrzyciskLink:visited, a.PrzyciskLink:link, a.PrzyciskLink:active {
     }
 
 #userdata-address-table {
-    margin-left: auto;
+    margin: 50px auto 50px auto;
+    /*margin-left: auto;
     margin-right: auto;
-    text-align: left;
     margin-top: 50px;
-    margin-bottom: 50px;
+    margin-bottom: 50px;*/
     border-style: none;
+    text-align: left;
 }
 
     #userdata-address-table tr {
@@ -844,11 +846,12 @@ a.PrzyciskLink:visited, a.PrzyciskLink:link, a.PrzyciskLink:active {
     }
 
 #albumedit-address-table {
-    margin-left: auto;
+    margin: 50px auto 50px auto;
+    /*margin-left: auto;
     margin-right: auto;
-    text-align: left;
     margin-top: 50px;
-    margin-bottom: 50px;
+    margin-bottom: 50px;*/
+    text-align: left;
     border-style: none;
 }
 
@@ -997,8 +1000,8 @@ div.upload input {
         text-decoration: none;
     }
 
-#login-header {
-}
+/*#login-header {
+}*/
 
     #login-header div {
         line-height: 40px;

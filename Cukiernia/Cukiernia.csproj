@@ -605,6 +605,8 @@
     <Content Include="Views\Koszyk\PotwierdzenieZamowienia.cshtml" />
     <Content Include="Views\Manage\Index.cshtml" />
     <Content Include="Views\Shared\_ManageLayout.cshtml" />
+    <Content Include="Views\Manage\ListaZamowien.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Enum.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
