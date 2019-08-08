@@ -31,6 +31,8 @@ namespace Cukiernia.Migrations
                         OpisProdukt = c.String(),
                         CenaProdukt = c.Decimal(nullable: false, precision: 18, scale: 2),
                         Bestseller = c.Boolean(nullable: false),
+						
+                        Ukryty = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.ProduktId)
                 .ForeignKey("dbo.Kategoria", t => t.KategoriaId, cascadeDelete: true)

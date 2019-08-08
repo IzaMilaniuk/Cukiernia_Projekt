@@ -463,6 +463,7 @@ ul.KursyTrzyKolumny {
             -o-transition: all 1s ease;
             -moz-transition: all 1s ease;
             transition: all 1s ease;
+            opacity : 0;
         }
 
         ul.KursyTrzyKolumny li a:hover h1 {
@@ -471,6 +472,7 @@ ul.KursyTrzyKolumny {
             -o-transition: all 0.5s ease;
             -moz-transition: all 0.5s ease;
             transition: all 0.5s ease;
+                opacity: 1;
         }
 
         ul.KursyTrzyKolumny li a img.kurs {
@@ -480,12 +482,13 @@ ul.KursyTrzyKolumny {
             height: 100%;
             width: 100%;
             z-index: -1;
-            opacity: 0.1;
+            opacity: 1;
             -webkit-transition: opacity 0.5s ease;
             -o-transition: opacity 0.5s ease;
             -moz-transition: opacity 0.5s ease;
             transition: opacity 0.5s ease;
         }
+      
 
         ul.KursyTrzyKolumny li a:hover img.kurs {
             opacity: 0.8;

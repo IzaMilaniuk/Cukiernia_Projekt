@@ -32,7 +32,8 @@ namespace Cukiernia.Controllers
         public ActionResult Szczegoly(int id)
         {
             var produkt = db.Produkty.Find(id);
-
+            var name = User.Identity.Name;
+          //  logger.Info("Strona szczególy | " + produkt.TytulKursu + " | " + name);
             return View(produkt);
         }
 

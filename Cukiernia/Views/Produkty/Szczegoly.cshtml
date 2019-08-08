@@ -40,7 +40,10 @@
                 <div id="ProduktInfo">
                     @Model.OpisSkrocony
                 </div>
-
+                @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                {
+                    <a href="@Url.Action("DodajProdukt", "Manage", new { produktId = Model.ProduktId })" style="margin-top: 20px; font-weight: bold; display: block;">Edytuj</a>
+                }
             </div>
         </section>
     </div>
