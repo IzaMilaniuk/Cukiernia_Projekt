@@ -2,6 +2,8 @@
 using Cukiernia.Infrastructure;
 using Cukiernia.Models;
 using Cukiernia.ViewModels;
+using Glimpse.Mvc.Tab;
+using NLog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,18 +13,21 @@ using System.Web.Mvc;
 namespace Cukiernia.Controllers
 {
   
-    
-
     public class HomeController : Controller
     {
+       
         private ProduktyContext db = new ProduktyContext();
+        private static Logger logger = LogManager.GetCurrentClassLogger();
+
         public ActionResult Index()
         {
-           
-                 
+            //throw new Exception("blaaad");
+            var name = User.Identity.Name;
+            logger.Info("Strona główna | " + name);
+
             //pobieranie nowosci ktore : nie sa ukryte w bazie ,po dacie dodania i bierzemy 3 do listy
             ICacheProvider cache = new DefaultCacheProvider();
-
+           
             List<Kategoria> kategorie;
             if (cache.IsSet(Consts.KategorieCacheKey))
             {

@@ -1,0 +1,26 @@
+2019-08-17 13:58:56.2424|INFO|Cukiernia.Controllers.HomeController|Jesteœ na stronie glownej
+2019-08-17 14:01:41.6234|INFO|Cukiernia.Controllers.HomeController|Jesteœ na stronie glownej
+2019-08-17 14:02:44.9857|INFO|Cukiernia.Controllers.HomeController|Jesteœ na stronie glownej
+2019-08-17 14:04:16.3382|INFO|Cukiernia.Controllers.HomeController|Jesteœ na stronie glownej
+2019-08-17 14:05:44.4869|INFO|Cukiernia.Controllers.HomeController|Jesteœ na stronie glownej
+2019-08-17 14:05:44.7632|INFO|Cukiernia.Controllers.HomeController|Jesteœ na stronie glownej
+2019-08-23 17:49:26.3992|INFO|Cukiernia.Controllers.HomeController|Jesteœ na stronie glownej
+2019-08-23 17:50:01.0294|INFO|Cukiernia.Controllers.HomeController|Jesteœ na stronie glownej
+2019-08-23 18:07:46.4117|INFO|Cukiernia.Controllers.HomeController|Jesteœ na stronie glownej
+2019-08-23 18:14:01.9284|INFO|Cukiernia.Controllers.HomeController|Jesteœ na stronie glownej
+2019-08-23 18:14:02.2673|INFO|Cukiernia.Controllers.HomeController|Jesteœ na stronie glownej
+2019-08-23 18:14:02.5471|INFO|Cukiernia.Controllers.HomeController|Jesteœ na stronie glownej
+2019-08-23 19:54:55.2516|INFO|Cukiernia.Controllers.HomeController|Jesteœ na stronie glownej
+2019-08-23 19:54:56.1463|INFO|Cukiernia.Controllers.HomeController|Jesteœ na stronie glownej
+2019-08-23 19:54:56.5190|INFO|Cukiernia.Controllers.HomeController|Jesteœ na stronie glownej
+2019-08-23 19:55:34.4944|INFO|Cukiernia.Controllers.HomeController|Jesteœ na stronie glownej
+2019-08-23 20:46:47.8270|INFO|Cukiernia.Controllers.HomeController|Jesteœ na stronie glownej
+2019-08-23 20:52:14.5934|INFO|Cukiernia.Controllers.HomeController|Strona g³ówna | admin@cukiernia.pl
+2019-08-27 17:27:21.2977|INFO|Cukiernia.Controllers.HomeController|Strona g³ówna | admin@cukiernia.pl
+2019-08-27 17:30:26.3114|INFO|Cukiernia.Controllers.HomeController|Strona g³ówna | admin@cukiernia.pl
+2019-08-27 17:37:43.9661|INFO|Cukiernia.Controllers.HomeController|Strona g³ówna | admin@cukiernia.pl
+2019-08-27 17:37:44.0221|INFO|Cukiernia.Controllers.HomeController|Iza udalo sie
+2019-08-27 17:39:53.7522|INFO|Cukiernia.Controllers.HomeController|Strona g³ówna | admin@cukiernia.pl
+2019-08-27 17:39:53.8091|INFO|Cukiernia.Controllers.HomeController|Iza udalo sie
+2019-08-27 17:47:51.0862|INFO|Cukiernia.Controllers.HomeController|Strona g³ówna | admin@cukiernia.pl
+2019-08-27 17:47:51.1328|INFO|Cukiernia.Controllers.HomeController|Iza udalo sie

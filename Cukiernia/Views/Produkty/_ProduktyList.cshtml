@@ -2,29 +2,34 @@
 @using Cukiernia.Infrastructure
 
 <div id="SekcjaListaKategori">
-    <ul class="KursyTrzyKolumny MalaListaKategorii">
-        @foreach (var produkt in Model)
-        {
+    
+        <ul class="KursyTrzyKolumny MalaListaKategorii">
            
-            <li>
-                <article>
-                    <a class="dodajDoKoszykaLink" href="@Url.Action("DodajDoKoszyka","Koszyk",new { id = produkt.ProduktId })">
-                        <img src="@Url.Content("~/Content/Images/koszyk.png")" />
-                    </a>
-                    @if (produkt.Bestseller)
+            @foreach (var produkt in Model) 
+            {
+                if (produkt.Ukryty == false)
+                {
+                        <li>
+                            <article>
+                                <a class="dodajDoKoszykaLink" href="@Url.Action("DodajDoKoszyka", "Koszyk", new { id = produkt.ProduktId })">
+                                    <img src="@Url.Content("~/Content/Images/koszyk.png")" />
+                                </a>
+                                @if (produkt.Bestseller)
                     {
-                        <div class="bestsellerFlag"></div>
-                    }
-                   
-                    <a class="produktSzczegolyLink" href="@Url.Action("Szczegoly","Produkty", new { id=produkt.ProduktId})">
-                        <img class="kurs" src="@Url.ObrazkiSciezka(produkt.NazwaPlikuObrazka)" />  <!--obrazki wywolanie dynamicznie-->
-                        <h1>
-                            @produkt.AutorProdukt - @produkt.TytulProdukt
-                        </h1>
-                    </a>
-                    
-                </article>
-            </li>
-        }
-    </ul>
-</div>
+                                    <div class="bestsellerFlag"></div>
+                                }
+
+                                <a class="produktSzczegolyLink" href="@Url.Action("Szczegoly", "Produkty", new { id = produkt.ProduktId })">
+                                    <img class="kurs" src="@Url.ObrazkiSciezka(produkt.NazwaPlikuObrazka)" />  <!--obrazki wywolanie dynamicznie-->
+                                    <h1>
+                                        @produkt.AutorProdukt - @produkt.TytulProdukt
+                                    </h1>
+                                </a>
+
+                            </article>
+                        </li>
+                
+                }
+            }
+        </ul>  
+    </div>
