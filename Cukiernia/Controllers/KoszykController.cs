@@ -3,11 +3,15 @@ using Cukiernia.DAL;
 using Cukiernia.Infrastructure;
 using Cukiernia.Models;
 using Cukiernia.ViewModels;
+using Hangfire;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
+using NLog;
+using Postal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -16,9 +20,12 @@ namespace Cukiernia.Controllers
 {
     public class KoszykController : Controller
     {
+        
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         private KoszykMenager koszykMenager;
         private ISessionMenager sessionMenager { get; set; }
         private ProduktyContext db ;
+     //   private IMailService maileService;
 
         public KoszykController()
         {
@@ -103,8 +110,9 @@ namespace Cukiernia.Controllers
 
                 // opróżnimy nasz koszyk zakupów
                 koszykMenager.PustyKoszyk();
+                string url = Url.Action("PotwierdzenieZamowieniaEmail", "Koszyk", new { zamowienieId = newOrder.ZamowienieID, nazwisko = newOrder.Nazwisko },Request.Url.Scheme);
+                BackgroundJob.Enqueue(() => UrlHelpers.CallUrl(url));
 
-             //   maileService.WyslaniePotwierdzenieZamowieniaEmail(newOrder);
 
                 return RedirectToAction("PotwierdzenieZamowienia");
             }
@@ -114,14 +122,37 @@ namespace Cukiernia.Controllers
 
         public ActionResult PotwierdzenieZamowienia()
         {
-          //  var name = User.Identity.Name;
-          //  logger.Info("Strona koszyk | potwierdzenie | " + name);
+           var name = User.Identity.Name;
+           logger.Info("Strona koszyk | potwierdzenie | " + name);
             return View();
         }
 
 
+       
+        public ActionResult PotwierdzenieZamowieniaEmail(int zamowienieId,string nazwisko)
+        {
+            var zamowienie = db.Zamowienia.Include("PozycjeZamowienia").Include("PozycjeZamowienia.Produkt")
+                   .SingleOrDefault(o => o.ZamowienieID == zamowienieId && o.Nazwisko == nazwisko);
+            if (zamowienie == null) return new HttpStatusCodeResult(HttpStatusCode.NotFound);
+
+            dynamic email = new Email("PotwierdzenieZamowienia");
+            //  var email = new PotwierdzenieZamowieniaEmail();
+            // PotwierdzenieZamowieniaEmail email = new PotwierdzenieZamowieniaEmail();
+            email.To = zamowienie.Email;
+            email.From = "izamilaniuk@gmail.com";
+            email.Wartosc = zamowienie.WartoscZamowienia;
+            email.NumerZamowienia = zamowienie.ZamowienieID;
+            email.PozycjeZamowienia = zamowienie.PozycjeZamowienia;
+
+            //  var email = new PotwierdzenieZamowieniaEmail();
+            //  return new EmailViewResult(email);
 
 
+            email.Send();
+            return new HttpStatusCodeResult(HttpStatusCode.OK);
+            //  return new HttpStatusCodeResult(HttpStatusCode.OK);
+            //maileService.WyslaniePotwierdzenieZamowieniaEmail(newOrder);
+        }
 
         private ApplicationUserManager _userManager;
         public ApplicationUserManager UserManager

@@ -1,0 +1,28 @@
+﻿@model Cukiernia.ViewModels.PotwierdzenieZamowieniaEmail
+
+Content-Type: text/plain; charset=utf-8
+
+Dziękujemy!
+
+Złożyłeś zamówienie w serwisie praktyczne kursy.
+Zamówione pozycje :
+
+@{
+    IEnumerable<Cukiernia.Models.PozycjaZamowienia> pozycjeZamowienia = Model.PozycjeZamowienia;
+
+    for (int i = 0; i < pozycjeZamowienia.Count(); i++)
+    {
+        @pozycjeZamowienia.ElementAt(i).produkt.TytulProdukt
+    }
+}
+Prosimy o przelanie kwoty @Model.Wartosc zł, tytułem: zamówienie nr @Model.NumerZamowienia na nasze konto bankowe:
+
+Cukiernia
+ul. Piekna 12/4
+40-467 Opole
+PKO BP 10 0000 0000 0000 0000 0000
+
+Zaraz po otrzymaniu środków rozpoczniemy realizację zamówienia i po jego zakończeniu wyślemy potwierdzenie gotowości do odbioru 
+
+Dziękujemy i zapraszamy ponownie!
+PraktyczneKursy.pl
