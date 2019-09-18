@@ -18,7 +18,7 @@ using System;
 using Cukiernia.Infrastructure;
 using NLog;
 using System.Net;
-
+using Postal;
 
 namespace Cukiernia.Controllers
 {
@@ -27,11 +27,17 @@ namespace Cukiernia.Controllers
     public class ManageController : Controller
     {
         private ProduktyContext db = new ProduktyContext();
+        private static Logger logger = LogManager.GetCurrentClassLogger();
+        private IMailService mailService;
 
         public enum ManageMessageId
         {
             ChangePasswordSuccess,
             Error
+        }
+        public ManageController(IMailService mailService)
+        {
+            this.mailService = mailService;
         }
         private ApplicationUserManager _userManager;
         public ApplicationUserManager UserManager
@@ -184,7 +190,7 @@ namespace Cukiernia.Controllers
 
             if (zamowienieDoModyfikacji.StanZamowienia == StanZamowienia.Zrealizowane)
             {
-                //      this.mailService.WyslanieZamowienieZrealizowaneEmail(zamowienieDoModyfikacji);
+                this.mailService.WyslanieZamowienieZrealizowaneEmail(zamowienieDoModyfikacji);
             }
 
             return zamowienie.StanZamowienia;
@@ -285,6 +291,34 @@ namespace Cukiernia.Controllers
 
             return RedirectToAction("DodajProdukt", new { potwierdzenie = true });
         }
-       
+
+
+
+
+
+     
+        [AllowAnonymous]
+        public ActionResult WyslanieZamowienieZrealizowaneEmail(int zamowienieId, string nazwisko)
+        {
+            var zamowienie = db.Zamowienia.Include("PozycjeZamowienia").Include("PozycjeZamowienia.Produkt")
+                                  .SingleOrDefault(o => o.ZamowienieID == zamowienieId && o.Nazwisko == nazwisko);
+
+            if (zamowienie == null) return new HttpStatusCodeResult(HttpStatusCode.NotFound);
+
+            dynamic email = new Email("ZamowienieZrealizowane");
+
+            email.To = zamowienie.Email;
+            email.From = "izamilaniuk@gmail.com";
+            email.Subject = "Zamowienie-Zrealizowane";
+            email.NumerZamowienia = zamowienie.ZamowienieID;
+            email.Send();
+
+            return new HttpStatusCodeResult(HttpStatusCode.OK);
+        }
+
+
+
+
+
     }
 }

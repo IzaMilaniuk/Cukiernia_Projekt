@@ -1,20 +1,24 @@
-﻿using Cukiernia.App_Start;
-using Cukiernia.DAL;
-using Cukiernia.Infrastructure;
-using Cukiernia.Models;
-using Cukiernia.ViewModels;
-using Hangfire;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using NLog;
-using Postal;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Threading.Tasks;
+﻿using Cukiernia.Models;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
+using System.Threading.Tasks;
+using Cukiernia.ViewModels;
+using Cukiernia.App_Start;
+using System.Collections.Generic;
+using Cukiernia.DAL;
+using System.Linq;
+using System.Data.Entity;
+using System.IO;
+using System;
+using Cukiernia.Infrastructure;
+using NLog;
+using System.Net;
+using Hangfire;
+using System.Net.Mail;
+using Postal;
 
 namespace Cukiernia.Controllers
 {
@@ -110,8 +114,11 @@ namespace Cukiernia.Controllers
 
                 // opróżnimy nasz koszyk zakupów
                 koszykMenager.PustyKoszyk();
-                string url = Url.Action("PotwierdzenieZamowieniaEmail", "Koszyk", new { zamowienieId = newOrder.ZamowienieID, nazwisko = newOrder.Nazwisko },Request.Url.Scheme);
+
+
+                string url = Url.Action("WyslaniePotwierdzenieZamowieniaEmail", "Koszyk", new { zamowienieId = newOrder.ZamowienieID, nazwisko = newOrder.Nazwisko }, Request.Url.Scheme);
                 BackgroundJob.Enqueue(() => UrlHelpers.CallUrl(url));
+
 
 
                 return RedirectToAction("PotwierdzenieZamowienia");
@@ -127,23 +134,28 @@ namespace Cukiernia.Controllers
             return View();
         }
 
-
-       
-        public ActionResult PotwierdzenieZamowieniaEmail(int zamowienieId,string nazwisko)
+        public ActionResult WyslaniePotwierdzenieZamowieniaEmail(int zamowienieId, string nazwisko)
         {
+
             var zamowienie = db.Zamowienia.Include("PozycjeZamowienia").Include("PozycjeZamowienia.Produkt")
-                   .SingleOrDefault(o => o.ZamowienieID == zamowienieId && o.Nazwisko == nazwisko);
+                                              .SingleOrDefault(o => o.ZamowienieID == zamowienieId && o.Nazwisko == nazwisko);
             if (zamowienie == null) return new HttpStatusCodeResult(HttpStatusCode.NotFound);
 
             dynamic email = new Email("PotwierdzenieZamowienia");
-            //  var email = new PotwierdzenieZamowieniaEmail();
-            // PotwierdzenieZamowieniaEmail email = new PotwierdzenieZamowieniaEmail();
+            //   var email = new PotwierdzenieZamowieniaEmail();
+            //    PotwierdzenieZamowieniaEmail email = new PotwierdzenieZamowieniaEmail();
+
+            //    dynamic email = new Postal.Email("PotwierdzenieZamowienia");
+
             email.To = zamowienie.Email;
-            email.From = "izamilaniuk@gmail.com";
+            email.From = ("izamilaniuk@gmail.com");
             email.Wartosc = zamowienie.WartoscZamowienia;
             email.NumerZamowienia = zamowienie.ZamowienieID;
             email.PozycjeZamowienia = zamowienie.PozycjeZamowienia;
+            email.Subject = "Welcome";
+            email.IsBodyHtml = true;
 
+            //   email.Subject = "Potwierdzenie Zamównienia";
             //  var email = new PotwierdzenieZamowieniaEmail();
             //  return new EmailViewResult(email);
 
@@ -153,6 +165,7 @@ namespace Cukiernia.Controllers
             //  return new HttpStatusCodeResult(HttpStatusCode.OK);
             //maileService.WyslaniePotwierdzenieZamowieniaEmail(newOrder);
         }
+
 
         private ApplicationUserManager _userManager;
         public ApplicationUserManager UserManager

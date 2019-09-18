@@ -1,0 +1,1 @@
+﻿<error errorId="42fcfc38-bc49-43a3-8e91-ea10123bb6f5" host="TSUBAKI30" type="System.InvalidOperationException" message="2019-09-08 21:18:47.1256 ERROR Failed to process the job '3': an exception occurred." source="Hangfire.Core" detail="   w Hangfire.Storage.InvocationData.DeserializeJob()" time="2019-09-08T20:18:47.1256931Z" />

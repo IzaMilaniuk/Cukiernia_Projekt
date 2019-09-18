@@ -219,6 +219,18 @@
       <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Web.Common, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Web.Common.3.2.3.0\lib\net45-full\Ninject.Web.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Web.Mvc, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.MVC5.3.2.1.0\lib\net45-full\Ninject.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
       <HintPath>..\packages\NLog.4.6.6\lib\net45\NLog.dll</HintPath>
       <Private>True</Private>
@@ -528,7 +540,7 @@
     <Content Include="scripts\umd\popper-utils.min.js" />
     <Content Include="scripts\umd\popper.js" />
     <Content Include="scripts\umd\popper.min.js" />
-    <Content Include="Views\Emails\PotwierdzenieZamowienia.Html.cshtml" />
+    <Content Include="Views\Emails\ZamowienieZrealizowane.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -536,6 +548,7 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -552,10 +565,13 @@
     <Compile Include="Infrastructure\AppConfig.cs" />
     <Compile Include="Infrastructure\Consts.cs" />
     <Compile Include="Infrastructure\DefaultCacheProvider.cs" />
+    <Compile Include="Infrastructure\HangFirePostalMailService.cs" />
     <Compile Include="Infrastructure\ICacheProvider.cs" />
+    <Compile Include="Infrastructure\IMailService.cs" />
     <Compile Include="Infrastructure\ISessionMenager.cs" />
     <Compile Include="Infrastructure\KategorieDynamicNodeProvider.cs" />
     <Compile Include="Infrastructure\KoszykMenager.cs" />
+    <Compile Include="Infrastructure\PostalMailService.cs" />
     <Compile Include="Infrastructure\ProduktySzczegolyDynamicNodeProvider.cs" />
     <Compile Include="Infrastructure\SessionMenager.cs" />
     <Compile Include="Infrastructure\UrlHelpers.cs" />
@@ -602,11 +618,11 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\AccontViewModels.cs" />
     <Compile Include="ViewModels\EditProduktViewModel.cs" />
+    <Compile Include="ViewModels\EmailModels.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
     <Compile Include="ViewModels\KoszykUsuwanieViewModel.cs" />
     <Compile Include="ViewModels\KoszykViewModel.cs" />
     <Compile Include="ViewModels\ManageViewModels.cs" />
-    <Compile Include="ViewModels\PotwierdzenieZamowieniaEmail.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -659,10 +675,10 @@
     <Content Include="Views\Manage\ListaZamowien.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Enum.cshtml" />
     <Content Include="Views\Manage\DodajProdukt.cshtml" />
-    <Content Include="Views\Emails\_ViewStart.cshtml" />
     <Content Include="Views\Emails\Web.config" />
     <Content Include="Views\Emails\PotwierdzenieZamowienia.cshtml" />
     <Content Include="Views\Emails\PotwierdzenieZamowienia.Text.cshtml" />
+    <Content Include="Views\Emails\_ViewStart.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

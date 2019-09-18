@@ -1,0 +1,1 @@
+﻿<error errorId="d9f372c2-8e35-459f-bd22-47b34de9b13b" host="TSUBAKI30" type="Info" message="2019-09-13 16:11:54.0584 INFO Starting Hangfire Server using job storage: 'SQL Server: (localdb)\MSSqlLocalDB@'" detail="2019-09-13 16:11:54.0584 INFO Starting Hangfire Server using job storage: 'SQL Server: (localdb)\MSSqlLocalDB@'" time="2019-09-13T15:11:54.0584307Z" />

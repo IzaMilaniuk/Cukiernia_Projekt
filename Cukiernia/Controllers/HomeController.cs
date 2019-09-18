@@ -20,6 +20,20 @@ namespace Cukiernia.Controllers
         private ProduktyContext db = new ProduktyContext();
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
+        
+
+       [HttpPost]
+            public ActionResult WyslaniePotwierdzenieZamowieniaEmail( )
+        {
+            if (ModelState.IsValid)
+            {
+                db.SaveChanges();
+            }
+
+            return RedirectToAction("Index");
+        }
+
+
         public ActionResult Index()
         {
             //throw new Exception("blaaad");

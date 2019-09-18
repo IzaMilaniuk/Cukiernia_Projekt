@@ -1,17 +1,27 @@
-﻿Content-Type: text/html; charset=utf-8
-@{
-    Layout = null;
-}
-
-<!DOCTYPE html>
+﻿@model Cukiernia.ViewModels.PotwierdzenieZamowieniaEmail
+Content-Type: text/html; charset=utf-8
 
 <html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>PotwierdzenieZamowieniaHtml</title>
-</head>
 <body>
-    <div> 
-    </div>
+    @Html.EmbedImage("~/content/Images/logo.png")
+    <p>Dziękujemy!</p>
+    <p>Zamówione pozycje :</p>
+    @{
+        IEnumerable<Cukiernia.Models.PozycjaZamowienia> pozycjeZamowienia = Model.PozycjeZamowienia;
+
+        for (int i = 0; i < pozycjeZamowienia.Count(); i++)
+        {
+            <p>
+                @pozycjeZamowienia.ElementAt(i).produkt.TytulProdukt - @pozycjeZamowienia.ElementAt(i).produkt.AutorProdukt
+                - @pozycjeZamowienia.ElementAt(i).produkt.CenaProdukt zł. - @pozycjeZamowienia.ElementAt(i).Ilosc szt.
+            </p>
+            <p>
+                @Html.EmbedImage(Path.Combine((string)Model.sciezkaObrazka, pozycjeZamowienia.ElementAt(i).produkt.NazwaPlikuObrazka), "", new { @width = 200, @class = "mcnImage", @style = "padding-bottom: 0px;max-width: 500px;border: 0;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;vertical-align: bottom;" })
+            </p>
+        }
+    }
+    <p>Prosimy o przelanie kwoty @Model.Wartosc zł, tytułem: "zamówienie nr @Model.NumerZamowienia" na nasze konto bankowe:</p>
+   
+
 </body>
 </html>
